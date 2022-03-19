@@ -1,0 +1,14 @@
+package ejemplo;
+
+public class dada {
+
+	public static void main(String[] args) {
+			System.out.println("hola");
+			System.out.println("messi es el mejor");
+			celular objcelular = new celular();
+			objcelular.llamar("lucas");
+	
+			
+	}
+
+}

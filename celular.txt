@@ -1,0 +1,25 @@
+package ejemplo;
+
+public class celular{
+	 
+
+	private String marca;
+	private String modelo;
+	private String color;
+
+public celular(){
+		
+	}
+	
+
+	public void llamar(String nombre){
+		System.out.println("LLamando a "+nombre);
+	}
+
+	public celular(String marca, String modelo, String color) {
+		this.marca = marca;
+		this.modelo = modelo;
+		this.color = color;
+	}
+
+}
