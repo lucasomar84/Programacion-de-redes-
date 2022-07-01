@@ -17,6 +17,7 @@ public class Cliente {
             System.exit(0);
         }
     }
+    
 
     public static void mostrarTexto(String s) {
         System.out.println(s);
