@@ -15,7 +15,7 @@ if (isset($_POST['register'])) {
     $query->execute();
 
     if ($query->rowCount() > 0) {
-        echo '<p class="error">The email address is already registered!</p>';
+        echo '<p class="error">La dirección de correo electrónico ya está registrada</p>';
     }
 
     if ($query->rowCount() == 0) {
@@ -26,9 +26,9 @@ if (isset($_POST['register'])) {
         $result = $query->execute();
 
         if ($result) {
-            echo '<p class="success">Your registration was successful!</p>';
+            echo '<p class="success">Ya te inscribiste</p>';
         } else {
-            echo '<p class="error">Something went wrong!</p>';
+            echo '<p class="error"> Error al  registrarse</p>';
         }
     }
 }
