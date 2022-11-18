@@ -30,11 +30,11 @@
                ?>
                 <?php while ($row = $result -> FETCH_ASSOC()){ ?>
                   <tr>
-                      <td><?php$row[id]?></td>
-                      <td><?$row[name]?></td>
-                      <td><?$row[dni]?></td>
-                      <td><?$row[consulta]?></td>
-                      <td><?$row[created_at]?></td>
+                      <td><?php echo $row[id] ?>;</td>
+                      <td><?php echo $row[name] ?>;</td>
+                      <td><?php echo $row[dni] ?>;</td>
+                      <td><?php echo $row[consulta] ?>;</td>
+                      <td><?php echo $row[created_at] ?>;</td>
                       <td>
                       <a class="btn btn-primary btn-sm"  href="/proyectoblanco/edit.php?id=">edit</a>
                       <a  class="btn btn-primary btn-sm"  href="/proyectoblanco/delete.php?id=">edit</a>
