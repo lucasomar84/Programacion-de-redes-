@@ -25,10 +25,10 @@
               include('config.php');
               session_start();
 
-                $sql = SELECT * FROM clients;
+                $sql = SELECT * FROM clients;";
                 $result = $connection -> query($sql);
 
-                while ($row = $result -> FETCH_ASSOC)) {
+                while ($row = $result -> FETCH_ASSOC()) {
                   <tr>
                       <td>$row[id]</td>
                       <td>$row[name]</td>
