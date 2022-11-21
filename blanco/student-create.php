@@ -47,19 +47,9 @@ session_start();
                                 <label>Student Course</label>
                                 <input type="text" name="course" class="form-control">
                             </div>
-                            <div class="image-3">
-                              Añadir imagen: <input name="archivo" id="archivo" type="file"/>
-                            </div>
-
-
-                            <p></p>
                             <div class="mb-3">
                                 <button type="submit" name="save_student" class="btn btn-primary">Save Student</button>
                             </div>
-
-
-
-
 
                         </form>
                     </div>

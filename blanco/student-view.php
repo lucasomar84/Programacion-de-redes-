@@ -63,12 +63,6 @@ require 'dbcon.php';
                                             <?=$student['course'];?>
                                         </p>
                                     </div>
-                                    <div class="mb-3">
-                                        <label>image/label>
-                                        <p class="form-control">
-                                            <?=$student['image'];?>
-                                        </p>
-                                    </div>
 
                                 <?php
                             }

@@ -57,10 +57,8 @@ if(isset($_POST['save_student']))
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $phone = mysqli_real_escape_string($con, $_POST['phone']);
     $course = mysqli_real_escape_string($con, $_POST['course']);
-    $course = mysqli_real_escape_string($con, $_POST['image']);
 
-
-    $query = "INSERT INTO students (name,email,phone,course) VALUES ('$name','$email','$phone','$course','$image')";
+    $query = "INSERT INTO students (name,email,phone,course) VALUES ('$name','$email','$phone','$course')";
 
     $query_run = mysqli_query($con, $query);
     if($query_run)
@@ -78,4 +76,3 @@ if(isset($_POST['save_student']))
 }
 
 ?>
-<?php

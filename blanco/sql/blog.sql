@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2022 a las 14:10:42
+-- Tiempo de generación: 21-11-2022 a las 21:12:26
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -33,8 +33,17 @@ CREATE TABLE `students` (
   `name` varchar(191) NOT NULL,
   `email` varchar(191) NOT NULL,
   `phone` varchar(191) NOT NULL,
-  `course` varchar(191) NOT NULL
+  `course` varchar(191) NOT NULL,
+  `imagen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `students`
+--
+
+INSERT INTO `students` (`id`, `name`, `email`, `phone`, `course`, `imagen`) VALUES
+(3, 'a', 'messi12@mail.com', '62562065', 'sexto', 0),
+(4, 'b', 'messi12@mail.com', '42432545', 'sexto', 0);
 
 -- --------------------------------------------------------
 
@@ -83,7 +92,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
