@@ -37,8 +37,8 @@
                                     <th>Student Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Course</th>
-                                    <th>imagenes</th>
+                                     <th>imagenes</th>
+                                    <th>Course</th>        
                                     <th>Action</th>
                                 </tr>
                             </thead>
