@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2022 a las 19:56:14
+-- Tiempo de generación: 21-11-2022 a las 14:10:42
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -19,31 +19,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `proyectoblanco`
+-- Base de datos: `blog`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `clients`
+-- Estructura de tabla para la tabla `students`
 --
 
-CREATE TABLE `clients` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `dni` varchar(20) DEFAULT NULL,
-  `consulta` varchar(200) DEFAULT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `students` (
+  `id` int(6) NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `email` varchar(191) NOT NULL,
+  `phone` varchar(191) NOT NULL,
+  `course` varchar(191) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `clients`
---
-
-INSERT INTO `clients` (`id`, `name`, `dni`, `consulta`, `created_at`) VALUES
-(1, 'Bill Gates', '123456789', 'Consulta', '2022-11-18 14:01:30'),
-(2, 'Elon Musk', '111222333', 'Oculista', '2022-11-18 14:01:30'),
-(3, 'Will Smith', '111333555', 'Oculista', '2022-11-18 14:01:30');
 
 -- --------------------------------------------------------
 
@@ -63,16 +54,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
-(1, 'a', '$2y$10$m5Z1WgDJwr/eUkAsEKttl.dOhbeXtW1V4G7BpzMq3H1AosHu9Omg2', 'a@gmail.com');
+(1, 'a', '$2y$10$m5Z1WgDJwr/eUkAsEKttl.dOhbeXtW1V4G7BpzMq3H1AosHu9Omg2', 'a@gmail.com'),
+(2, 'lucas', '$2y$10$TLsH8tbcdnYj7/BPMZfLfu1LLL1PAiL4L5lc/y9uySg0SFgKahEC.', 'lucasacuna87@gmail.com'),
+(3, 'b', '$2y$10$dA2v4pRa1iglg0VdWWdPy.WLQUgjet313mdRfvvhK8cfn2sRBQkjm', 'b@gmail.com');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `clients`
+-- Indices de la tabla `students`
 --
-ALTER TABLE `clients`
+ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -87,16 +80,16 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT de la tabla `clients`
+-- AUTO_INCREMENT de la tabla `students`
 --
-ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `students`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

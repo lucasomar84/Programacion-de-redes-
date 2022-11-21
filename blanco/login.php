@@ -1,6 +1,6 @@
 <?php
 
-include('config.php');
+include('bdreglogin.php');
 session_start();
 
 if (isset($_POST['login'])) {
@@ -8,7 +8,7 @@ if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $query = $connection->prepare("SELECT * FROM users WHERE USERNAME=:username");
+    $query = $con->prepare("SELECT * FROM users WHERE USERNAME=:username");
     $query->bindParam("username", $username, PDO::PARAM_STR);
     $query->execute();
 
@@ -51,8 +51,9 @@ if (isset($_POST['login'])) {
             <input type="password" name="password" required />
         </div>
         <button type="submit" name="login" value="login">Log In</button>
+        <button type="button" name="button"><a href="/proyectoblanco/register.php">register</a>
+</button>
     </form>
-
 
   </body>
 </html>

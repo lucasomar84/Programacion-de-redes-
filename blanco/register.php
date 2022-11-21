@@ -1,6 +1,5 @@
 <?php
-
-include('config.php');
+include('bdreglogin.php');
 session_start();
 
 if (isset($_POST['register'])) {
@@ -10,7 +9,7 @@ if (isset($_POST['register'])) {
     $password = $_POST['password'];
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-    $query = $connection->prepare("SELECT * FROM users WHERE EMAIL=:email");
+    $query = $con->prepare("SELECT * FROM users WHERE EMAIL=:email");
     $query->bindParam("email", $email, PDO::PARAM_STR);
     $query->execute();
 
@@ -19,10 +18,10 @@ if (isset($_POST['register'])) {
     }
 
     if ($query->rowCount() == 0) {
-        $query = $connection->prepare("INSERT INTO users(USERNAME,PASSWORD,EMAIL) VALUES (:username,:password_hash,:email)");
+        $query = $con->prepare("INSERT INTO users(USERNAME,PASSWORD,EMAIL) VALUES (:username,:password_hash,:email)");
         $query->bindParam("username", $username, PDO::PARAM_STR);
-        $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
         $query->bindParam("email", $email, PDO::PARAM_STR);
+        $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
         $result = $query->execute();
 
         if ($result) {
