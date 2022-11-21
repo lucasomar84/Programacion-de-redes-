@@ -1,4 +1,6 @@
+
 <?php
+// Este archivo no se usa
 require_once "insert_read.php";
 
 
