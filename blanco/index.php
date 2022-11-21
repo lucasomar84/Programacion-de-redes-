@@ -38,6 +38,7 @@
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Course</th>
+                                    <th>imagenes</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -56,6 +57,7 @@
                                                 <td><?= $student['name']; ?></td>
                                                 <td><?= $student['email']; ?></td>
                                                 <td><?= $student['phone']; ?></td>
+                                                <td><?= $student['imagenes']; ?></td>
                                                 <td><?= $student['course']; ?></td>
                                                 <td>
                                                     <a href="student-view.php?id=<?= $student['id']; ?>" class="btn btn-info btn-sm">View</a>
