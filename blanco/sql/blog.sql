@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2022 a las 06:51:01
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.2
+-- Tiempo de generación: 22-11-2022 a las 16:23:30
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -53,6 +52,7 @@ INSERT INTO `students` (`id`, `name`, `email`, `phone`, `course`, `imagen`) VALU
 
 CREATE TABLE `users` (
   `id` int(20) NOT NULL,
+  `tags` varchar(250) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -63,9 +63,10 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `admin`) VALUES
-(1, 'lucas', '$2y$10$DvxWvHFD4qCDrdqEPCh8Ee1mYSa8JiXPsGNQkTNcALp9OaFyYN.oy', 'lucasacuna87@gmail.com', 1),
-(2, 'facu', '$2y$10$ZDGsRkqeLdkg.ANIdQTABuYlqZqoh3lc3TYinfWZf4yXUCQ2vRXNO', 'facu98@gmail.com', 0);
+INSERT INTO `users` (`id`, `tags`, `username`, `password`, `email`, `admin`) VALUES
+(1, '', 'lucas', '$2y$10$DvxWvHFD4qCDrdqEPCh8Ee1mYSa8JiXPsGNQkTNcALp9OaFyYN.oy', 'lucasacuna87@gmail.com', 1),
+(2, '', 'facu', '$2y$10$ZDGsRkqeLdkg.ANIdQTABuYlqZqoh3lc3TYinfWZf4yXUCQ2vRXNO', 'facu98@gmail.com', 0),
+(3, '637ce1625d266', 'matias', '$2y$10$uUOzLaIMGzMsp2ac0Ay.MepHdFefz3CUZQtnTP4c9toq2m8S1lZT.', 'matias@gmail.com', 0);
 
 --
 -- Índices para tablas volcadas
@@ -97,7 +98,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
