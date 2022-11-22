@@ -3,6 +3,7 @@
 include('bdreglogin.php');
 session_start();
 
+
 if (isset($_POST['login'])) {
 
     $username = $_POST['username'];
@@ -26,7 +27,12 @@ if (isset($_POST['login'])) {
     }
 }
 
+
+
 ?>
+
+
+
 
 
 
@@ -51,7 +57,7 @@ if (isset($_POST['login'])) {
             <input type="password" name="password" required />
         </div>
         <button type="submit" name="login" value="login">Log In</button>
-        <button type="button" name="button"><a href="/proyectoblanco/register.php">register</a>
+        <button type="button" name="button"><a href="/blanco/register.php">register</a>
 </button>
     </form>
 

@@ -39,7 +39,7 @@ if (isset($_POST['register'])) {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>clinica</title>
+    <title>register</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -57,6 +57,8 @@ if (isset($_POST['register'])) {
             <input type="password" name="password" required />
         </div>
         <button type="submit" name="register" value="register">Register</button>
+        <button type="button" name="button"><a href="/blanco/login.php">volver al login</a>
+
     </form>
 
   </body>
