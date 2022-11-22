@@ -21,6 +21,7 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $result['password'])) {
             $_SESSION['user_id'] = $result['id'];
             echo '<p class="success">ya estas registrado</p>';
+            Header("Location: index.php");
         } else {
             echo '<p class="error">La combinación de nombre de usuario y contraseña es incorrecta</p>';
         }

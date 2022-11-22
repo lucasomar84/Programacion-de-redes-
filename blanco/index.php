@@ -1,7 +1,21 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['user_id'])) Header("Location: login.php");
+
 require 'dbcon.php';
+$user_id = $_SESSION['user_id'];
+$admin = false;
+$sqlAdmin = "SELECT * FROM users where id = '$user_id'";
+$resultAdmin = mysqli_query($con, $sqlAdmin);
+
+if (mysqli_num_rows($resultAdmin) > 0) {
+  foreach ($resultAdmin as $user) {
+    if($user['admin'] == 1) $admin = true;
+  }
+}
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -13,12 +27,12 @@ require 'dbcon.php';
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <title>Student CRUD</title>
+  <title>Student Create</title>
 </head>
 
 <body>
 
-  <div class="container mt-4">
+  <div class="container mt-5">
 
     <?php include('message.php'); ?>
 
@@ -26,57 +40,40 @@ require 'dbcon.php';
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4>Student Details
-              <a href="student-create.php" class="btn btn-primary float-end">Add Students</a>
+            <h4>Student Add
+            <a href="logout.php" class="btn btn-danger float-end">Cerrar sesion</a>
+              <?php if($admin == true){ ?>
+                <a href="dashboard.php" class="btn btn-danger float-end">BACK</a>
+              <?php } ?>
             </h4>
           </div>
           <div class="card-body">
+            <form action="code.php" method="POST" enctype="multipart/form-data">
 
-            <table class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Student Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Course</th>
-                  <th>imagenes</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                $query = "SELECT * FROM students";
-                $query_run = mysqli_query($con, $query);
+              <div class="mb-3">
+                <label>Student Name</label>
+                <input type="text" name="name" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label>Student Email</label>
+                <input type="email" name="email" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label>Student Phone</label>
+                <input type="text" name="phone" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label>Student Course</label>
+                <input type="text" name="course" class="form-control">
+              </div>
+              <div class="image-3">
+                Añadir imagen: <input name="archivo" id="archivo" type="file" />
+              </div>
+              <div class="mb-3">
+                <button type="submit" name="save_student" class="btn btn-primary">Save Student</button>
+              </div>
 
-                if (mysqli_num_rows($query_run) > 0) {
-                  foreach ($query_run as $student) {
-                ?>
-                    <tr>
-                      <td><?= $student['id']; ?></td>
-                      <td><?= $student['name']; ?></td>
-                      <td><?= $student['email']; ?></td>
-                      <td><?= $student['phone']; ?></td>
-                      <td><?= $student['course']; ?></td>
-                      <td><img src="./imagenes-locales/<?= $student['imagen']; ?>"></td>
-                      <td>
-                        <a href="student-view.php?id=<?= $student['id']; ?>" class="btn btn-info btn-sm">View</a>
-                        <a href="student-edit.php?id=<?= $student['id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                        <form action="code.php" method="POST" class="d-inline">
-                          <button type="submit" name="delete_student" value="<?= $student['id']; ?>" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                      </td>
-                    </tr>
-                <?php
-                  }
-                } else {
-                  echo "<h5> No Record Found </h5>";
-                }
-                ?>
-
-              </tbody>
-            </table>
-
+            </form>
           </div>
         </div>
       </div>
@@ -84,7 +81,6 @@ require 'dbcon.php';
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
