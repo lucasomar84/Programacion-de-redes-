@@ -53,6 +53,7 @@ require 'dbcon.php';
                   foreach ($query_run as $student) {
                 ?>
                     <tr>
+                      
                       <td><?= $student['id']; ?></td>
                       <td><?= $student['name']; ?></td>
                       <td><?= $student['email']; ?></td>
@@ -73,10 +74,9 @@ require 'dbcon.php';
                   echo "<h5> No Record Found </h5>";
                 }
                 ?>
-
+                
               </tbody>
             </table>
-
           </div>
         </div>
       </div>
